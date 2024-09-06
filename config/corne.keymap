@@ -61,19 +61,9 @@
             key-positions = <16 19>;
         };
 
-        jk_fix {
-            bindings = <&kp ESCAPE>;
-            key-positions = <31 32>;
-        };
-
-        under {
-            bindings = <&kp UNDER>;
-            key-positions = <28 31>;
-        };
-
-        dash {
-            bindings = <&kp MINUS>;
-            key-positions = <4 7>;
+        settings_layer {
+            bindings = <&sl 4>;
+            key-positions = <38 39>;
         };
     };
 
@@ -105,13 +95,22 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&none  &kp Q              &kp W             &kp E                    &kp R                  &kp T          &kp Y        &kp U              &kp I             &kp O              &kp P         &none
-&none  &weak LEFT_META A  &weak LEFT_ALT S  &shifthr LEFT_CONTROL D  &shifthr LEFT_SHIFT F  &kp G          &kp H        &shifthr RSHIFT J  &shifthr RCTRL K  &weak RIGHT_ALT L  &hm SEMI SQT  &none
-&none  &kp Z              &kp X             &kp C                    &kp V                  &kp B          &kp N        &kp M              &kp COMMA         &kp DOT            &kp SLASH     &none
-                                            &hm LC(BACKSPACE) TAB    &lt 1 ESCAPE           &lt 2 SPACE    &lt 2 ENTER  &lt 1 SPACE        &kp BACKSPACE
+&none  &weak ESCAPE Q     &kp W             &kp E                    &kp R                  &kp T          &kp Y        &kp U              &kp I             &kp O              &kp P           &none
+&none  &weak LEFT_META A  &weak LEFT_ALT S  &shifthr LEFT_CONTROL D  &shifthr LEFT_SHIFT F  &kp G          &kp H        &shifthr RSHIFT J  &shifthr RCTRL K  &weak RIGHT_ALT L  &weak SEMI SQT  &none
+&none  &kp Z              &kp X             &kp C                    &kp V                  &kp B          &kp N        &kp M              &kp COMMA         &kp DOT            &kp SLASH       &none
+                                            &trans                   &lt 2 TAB              &lt 3 SPACE    &lt 3 ENTER  &lt 2 BACKSPACE    &trans
             >;
 
             label = "home";
+        };
+
+        GAMING {
+            bindings = <
+&trans  &kp TAB     &kp Q  &kp W   &kp E         &kp R          &kp T    &kp Y          &kp U   &kp I      &kp O  &trans
+&trans  &kp LCTRL   &kp A  &kp S   &kp D         &kp F          &kp G    &kp H          &kp J   &kp K      &kp L  &trans
+&trans  &kp LSHIFT  &kp Z  &kp X   &kp C         &kp V          &kp B    &kp N          &kp M   &kp GRAVE  &kp P  &trans
+                           &trans  &lt 2 ESCAPE  &lt 3 SPACE    &kp RET  &kp BACKSPACE  &trans
+            >;
         };
 
         num {
@@ -122,10 +121,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&none  &kp EXCL            &kp AT               &kp LEFT_BRACE              &kp RIGHT_BRACE                   &kp PIPE         &kp PLUS   &kp NUMBER_7  &kp N8        &kp N9        &kp ASTERISK   &none
-&none  &hm LEFT_META HASH  &hm LEFT_ALT DOLLAR  &hm LCTRL LEFT_PARENTHESIS  &hm LEFT_SHIFT RIGHT_PARENTHESIS  &kp GRAVE        &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp COLON      &none
-&none  &kp PERCENT         &kp CARET            &kp LEFT_BRACKET            &kp RIGHT_BRACKET                 &kp AMPERSAND    &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp BACKSLASH  &none
-                                                &none                       &kp DELETE                        &kp LG(SPACE)    &save      &kp SPACE     &kp N0
+&none  &kp NUMBER_1               &kp N2                &kp N3          &kp N4                 &kp N5           &kp N6         &kp N7             &kp N8        &kp N9                &kp N0                 &none
+&none  &hm LEFT_META EXCLAMATION  &hm LEFT_ALT AT_SIGN  &hm LCTRL HASH  &hm LEFT_SHIFT DOLLAR  &kp PERCENT      &kp CARET      &kp AMPERSAND      &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &none
+&none  &trans                     &trans                &trans          &trans                 &kp GRAVE        &kp BACKSLASH  &kp MINUS          &kp EQUAL     &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &none
+                                                        &none           &kp DELETE             &kp LG(SPACE)    &save          &kp LC(BACKSPACE)  &trans
             >;
 
             label = "num";
@@ -133,22 +132,24 @@
 
         nav {
             bindings = <
-&trans  &kp F1            &kp F2           &kp F3        &kp F4             &email        &kp END           &kp PAGE_DOWN      &kp PG_UP        &kp HOME    &none  &trans
-&trans  &hm LEFT_META F5  &hm LEFT_ALT F6  &hm LCTRL F7  &hm LEFT_SHIFT F8  &kp LC(C)     &kp LEFT_ARROW    &kp DOWN           &kp UP_ARROW     &kp RIGHT   &none  &trans
-&trans  &kp F9            &kp F10          &kp F11       &kp F12            &kp LC(V)     &kp C_PREVIOUS    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &trans
-                                           &bt BT_CLR    &bt BT_PRV         &bt BT_NXT    &kp C_PLAY_PAUSE  &none              &tog 3
+&trans  &kp F1              &kp F2             &kp F3             &kp F4                  &email       &kp END           &kp PAGE_DOWN      &kp PG_UP        &kp HOME    &none  &trans
+&trans  &weak LEFT_META F5  &weak LEFT_ALT F6  &shifthr LCTRL F7  &shifthr LEFT_SHIFT F8  &kp LC(C)    &kp LEFT_ARROW    &kp DOWN           &kp UP_ARROW     &kp RIGHT   &none  &trans
+&trans  &kp F9              &kp F10            &kp F11            &kp F12                 &kp LC(V)    &kp C_PREVIOUS    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT  &none  &trans
+                                               &trans             &trans                  &trans       &kp C_PLAY_PAUSE  &none              &trans
             >;
 
             label = "nav";
         };
 
-        GAMING {
+        settings {
             bindings = <
-&trans  &kp TAB     &kp Q  &kp W   &kp E         &kp R        &kp T    &kp Y      &kp U     &kp I      &kp O    &trans
-&trans  &kp LCTRL   &kp A  &kp S   &kp D         &kp F        &kp G    &kp H      &kp J     &kp K      &kp L    &trans
-&trans  &kp LSHIFT  &kp Z  &kp X   &kp C         &kp V        &kp B    &kp N      &kp M     &kp COMMA  &kp DOT  &trans
-                           &tog 3  &lt 2 ESCAPE  &kp SPACE    &kp RET  &kp GRAVE  &kp BSPC
+&trans  &trans  &trans  &trans  &trans  &bt BT_SEL 0    &bt BT_SEL 1  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &bt BT_SEL 2    &bt BT_CLR    &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &tog 1          &trans        &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans          &trans        &trans  &trans
             >;
+
+            label = "settings_layer";
         };
     };
 };
